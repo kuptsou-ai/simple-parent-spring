@@ -15,7 +15,7 @@ public class Wind {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
-    private String chill;
+    private String description;
     private String direction;
     private String speed;
 
@@ -28,9 +28,12 @@ public class Wind {
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
 
-    public String getChill() { return chill; }
-    public void setChill(String newChill) {
-	this.chill = newChill;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public final String getDirection() { return direction; }

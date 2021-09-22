@@ -18,8 +18,8 @@ public class Atmosphere {
     private String humidity;
     private String visibility;
     private String pressure;
-    private String rising;
-    
+    private String clouds;
+
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="weather_id", nullable=false)
     private Weather weather;
@@ -44,11 +44,14 @@ public class Atmosphere {
 	this.pressure = newPressure;
     }
 
-    public final String getRising() { return rising; }
-    public final void setRising(final String newRising) {
-	this.rising = newRising;
+    public String getClouds() {
+        return clouds;
     }
-    
+
+    public void setClouds(String clouds) {
+        this.clouds = clouds;
+    }
+
     public Weather getWeather() { return weather; }
     public void setWeather(Weather weather) { this.weather = weather; }
     

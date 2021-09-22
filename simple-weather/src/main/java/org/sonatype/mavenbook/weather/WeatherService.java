@@ -1,41 +1,32 @@
 package org.sonatype.mavenbook.weather;
 
-import java.io.InputStream;
-
 import org.sonatype.mavenbook.weather.model.Weather;
 
 public class WeatherService {
 
-	private YahooRetriever yahooRetriever;
-	private YahooParser yahooParser;
+    private OpenWeatherRetriever weatherRetriever;
+    private OpenWeatherParser weatherParser;
 
-	public WeatherService() {
-	}
+    public WeatherService() {
+    }
 
-	public Weather retrieveForecast(String zip) throws Exception {
-		// Retrieve Data
-		InputStream dataIn = yahooRetriever.retrieve(zip);
+    public Weather retrieveForecast(String city) throws Exception {
+        return weatherParser.parse(weatherRetriever.retrieve(city));
+    }
 
-		// Parse DataS
-		Weather weather = yahooParser.parse(zip, dataIn);
+    public OpenWeatherRetriever getWeatherRetriever() {
+        return weatherRetriever;
+    }
 
-		return weather;
-	}
+    public void setWeatherRetriever(OpenWeatherRetriever weatherRetriever) {
+        this.weatherRetriever = weatherRetriever;
+    }
 
-	public YahooRetriever getYahooRetriever() {
-		return yahooRetriever;
-	}
+    public OpenWeatherParser getWeatherParser() {
+        return weatherParser;
+    }
 
-	public void setYahooRetriever(YahooRetriever yahooRetriever) {
-		this.yahooRetriever = yahooRetriever;
-	}
-
-	public YahooParser getYahooParser() {
-		return yahooParser;
-	}
-
-	public void setYahooParser(YahooParser yahooParser) {
-		this.yahooParser = yahooParser;
-	}
-
+    public void setWeatherParser(OpenWeatherParser weatherParser) {
+        this.weatherParser = weatherParser;
+    }
 }

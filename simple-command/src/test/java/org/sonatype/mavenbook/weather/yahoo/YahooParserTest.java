@@ -5,7 +5,6 @@ import java.io.InputStream;
 import junit.framework.TestCase;
 
 import org.sonatype.mavenbook.weather.model.Weather;
-import org.sonatype.mavenbook.weather.YahooParser;
 
 public class YahooParserTest extends TestCase {
 
@@ -20,7 +19,7 @@ public class YahooParserTest extends TestCase {
 		assertEquals( "New York", weather.getLocation().getCity() );
 		assertEquals( "NY", weather.getLocation().getRegion() );
 		assertEquals( "US", weather.getLocation().getCountry() );
-		assertEquals( "39", weather.getCondition().getTemp() );
+		assertEquals( "39", weather.getCondition().getTemperature() );
 		assertEquals( "Fair", weather.getCondition().getText() );
 		assertEquals( "39", weather.getWind().getChill() );
 		assertEquals( "67", weather.getAtmosphere().getHumidity() );
