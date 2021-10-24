@@ -20,13 +20,11 @@ public class HistoryController implements Controller {
 	private LocationDAO locationDAO;
 	private WeatherDAO weatherDAO;
 
-	public ModelAndView handleRequest(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		String zip = request.getParameter("zip");
-		Location location = locationDAO.findByZip(zip);
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
+		Location location = locationDAO.findByZip(request.getParameter("city"));
 		List<Weather> weathers = weatherDAO.recentForLocation( location );
 		
-		Map<String,Object> model = new HashMap<String,Object>();
+		Map<String,Object> model = new HashMap<>();
 		model.put( "location", location );
 		model.put( "weathers", weathers );
 		
