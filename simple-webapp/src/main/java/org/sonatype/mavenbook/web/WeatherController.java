@@ -15,6 +15,7 @@ public class WeatherController implements Controller {
 	private WeatherService weatherService;
 	private WeatherDAO weatherDAO;
 
+	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 

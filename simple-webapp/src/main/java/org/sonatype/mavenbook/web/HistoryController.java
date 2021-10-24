@@ -18,6 +18,7 @@ public class HistoryController implements Controller {
     private LocationDAO locationDAO;
     private WeatherDAO weatherDAO;
 
+    @Override
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
         Location location = locationDAO.findByCity(request.getParameter("city"));
         List<Weather> weathers = weatherDAO.recentForLocation(location);
