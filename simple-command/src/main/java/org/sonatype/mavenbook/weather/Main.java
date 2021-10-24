@@ -66,7 +66,7 @@ public class Main {
 	}
 
 	public void getHistory() throws Exception {
-		Location location = locationDAO.findByZip(zip);
+		Location location = locationDAO.findByCity(zip);
 		List<Weather> weathers = weatherDAO.recentForLocation(location);
 		System.out.print(new WeatherFormatter().formatHistory(location, weathers));
 	}
